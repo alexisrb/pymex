@@ -15,12 +15,31 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('curp')->unique()->nullable();
+            $table->date('fecha_de_ingreso')->nullable();
+            $table->date('fecha_de_nacimiento')->nullable();
+            $table->date('numero_empleado')->nullable();
+            $table->string('whatsapp')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('estatus')->nullable()->default('Activo');
+            $table->string('rfc')->nullable();
             $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('estado')->nullable();
+            $table->string('municipio')->nullable();
+            $table->string('seccion')->nullable();
+            $table->string('distrito')->nullable();
+            $table->string('localidad')->nullable();
+            $table->string('clv_electoral')->nullable();
+            $table->string('vigencia')->nullable();
+            $table->string('emision')->nullable();
+            $table->string('tipo_usuario')->nullable();
+            $table->string('nvl_estudios')->nullable();
+            $table->string('agrupacion_1')->nullable();
+            $table->string('agrupacion_2')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

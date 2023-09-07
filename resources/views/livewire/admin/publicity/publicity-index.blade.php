@@ -26,11 +26,11 @@
                 <thead>
                     <tr>
                        <th>#</th>
+                       <th>Alias</th>
                         <th>Yardas / Espectacular</th>
                         <th>Num. Fiscalización</th>
                         <th>Dirección</th>
-                        <th>add</th>
-                        <th>add</th>
+                        
                         @can('')
                             <th></th>
                         @endcan
@@ -43,14 +43,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @if ($publicities->count())
+                        @foreach($publicities as $publicity)
+                            <tr>
+                                <td>{{$publicity->id}}</td>
+                                <td>{{$publicity->alias}}</td>
+                                <td>{{$publicity->id_espectacular}}</td>
+                                <td>{{$publicity->numero_fiscalizacion}}</td>
+                                <td>{{$publicity->direccion}}</td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr scope="row">
+                            <td colspan="25">
+                                <p class="text-center text-danger pt-3"><strong>Sin registro</strong></p>
+                            </td>
+                        </tr>
+                    @endif
                 </tbody>
             </table>
-        <!--else-->
-            <div class="my-5">
-                <p class="text-center text-danger"><strong>Sin registro</strong></p>
-            </div>
-        <!--endif-->
     </div>
     
 
