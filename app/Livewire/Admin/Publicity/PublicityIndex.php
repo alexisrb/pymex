@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Publicity;
 
+use App\Models\Publicity;
 use Livewire\Component;
 
 class PublicityIndex extends Component
@@ -10,6 +11,8 @@ class PublicityIndex extends Component
     
     public function render()
     {
-        return view('livewire.admin.publicity.publicity-index');
+        $publicities = Publicity::all();
+
+        return view('livewire.admin.publicity.publicity-index', ['publicities' => $publicities]);
     }
 }

@@ -7,7 +7,7 @@
     </nav>
     <div class="card">
         <div class="card-header bg-maroon">
-            <h5 class="text-center my-2">{{$name}}</h5>
+            <h5 class="text-center my-2">{{$alias}}</h5>
         </div>
         <div class="card-body">
             <form>
@@ -96,7 +96,20 @@
                                     </div>
                                     @error('tipo') <span class="text-danger error">{{ $message }}</span>@enderror
                                 </div>
-                               
+                                <div class="form-group col-12">
+                                    <div wire:ignore>
+                                        <label class="col-form-label">
+                                            {{ __('Responsable') }}
+                                        </label>
+                                        <select class="form-control" id="users" wire:model="responsable">
+                                            <option value="">Selecciona una opción</option>
+                                            @foreach($users as $responsable)
+                                                <option value="{{ $responsable->id}}">{{ $responsable->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    @error('responsable') <span class="text-danger error">{{ $message }}</span>@enderror
+                                </div>
                                 
                             </div>
                         </div>
